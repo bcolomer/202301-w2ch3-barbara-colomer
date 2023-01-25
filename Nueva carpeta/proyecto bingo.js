@@ -1,176 +1,134 @@
-/* VERSION BASICA CON 5 NUMEROS Y SOLO 10 EN EL BOMBO
-const welcome = ()=>{
-  let userName = prompt("Ingrese su nombre de usuario")
-  if( userName === null || userName === "" || userName === " "){
-   alert ("Por favor, ingrese un nombre de usuario valido")
-    return welcome()
-   } else { 
-     userName = userName.toUpperCase()
-     console.log(`${userName}, bienvenido al Bingo Online, para jugadores empedernidos anonimos!`)
-   }
- }
-
-//rellena una linea de 5 numeros de la tarjeta de bingo
-const card= []
-const fillCard = ()=>{
-do{
-let addnumber = (Math.ceil(Math.random()*90))//ceil redondea hacia arriba, floor hacia abajo y round al mas cerca, como no me interesa el cero pero si el 90, la opcion ceil es la mas acertada
-if(!card.some(tarjeta => tarjeta.code === addnumber))//si el numero no esta aun en la linea, lo añade, si esta llama a la funcion otra vez
-{
-alert ("los numeros de tu tarjeta de bingo son: " + addnumber)
-card.push({code: addnumber, match: false})
-console.table(card)
-}
- }
-while(card.length <5) //hasta que tenga 5 numeros
-//console.log(card)
-}
-
-//const lotteryDrum = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-//const lotteryDrum = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90] 
-const usedNumbers = []
-//let round = 0
-
-const getRandomNumber =()=>{
-let addnumber = (Math.ceil(Math.random()*90))
-//console.log("el numero que salio es : "+addnumber)
-if (usedNumbers.includes(addnumber)) { 
-  getRandomNumber()
-}else if (card.some(codes => codes.code === addnumber)){
-  alert("ha salido el numero: " + addnumber + " y esta en tu carton!")
-  console.table(card)
-  let index = card.findIndex(x => x.code === addnumber)
-  card[index].match= true
-  usedNumbers.push(addnumber)
-  console.log(card)
-   } else {
-   alert("ha salido el numero " + addnumber + " pero no esta en tu cartón")
-   usedNumbers.push(addnumber)
-   }  // round++
-}
-
-const bingoplay =()=>{
-let allMatched
-do  {
-  getRandomNumber()
- allMatched = card.every((cards) => cards.match)
- console.table(card)
- } 
- while (!allMatched)
-alert(`ENHORABUENA! Has cantado linea en  ${usedNumbers.length} tiradas`)
-}
-
-const bingoApp = ()=>{    
-  welcome()     
-  fillCard()
-  bingoplay()
-  console.log("los numeros que han salido son : "+ usedNumbers+ ". Los turnos jugados son " + usedNumbers.length)
+const welcome = () => {
+  let userName = prompt("Ingrese su nombre de usuario");
+  if (userName === null || userName === "" || userName === " ") {
+    alert("Por favor, ingrese un nombre de usuario valido");
+    return welcome();
+  } else {
+    userName = userName.toUpperCase();
+    console.log(
+      `${userName}, bienvenido al Bingo Online, para jugadores empedernidos anonimos!`
+    );
   }
-bingoApp()*/
+};
 
+const lineOne = [];
+const lineTwo = [];
+const lineThree = [];
+const numbersOut = [0];
 
+const fillLineOne = () => {
+  do {
+    let addnumber = Math.ceil(Math.random() * 15);
+    if (!numbersOut.includes(addnumber)) {
+      alert(
+        "los numeros de tu tarjeta de bingo para la 1era fila son: " + addnumber
+      );
+      lineOne.push({ code: addnumber, match: false });
+      numbersOut.push(addnumber);
+    }
+  } while (lineOne.length < 5);
+  console.table(lineOne);
+};
 
+const fillLineTwo = () => {
+  do {
+    let addnumber = Math.ceil(Math.random() * 15);
+    if (!numbersOut.includes(addnumber)) {
+      alert(
+        "los numeros de tu tarjeta de bingo para la 2da fila son: " + addnumber
+      );
+      lineTwo.push({ code: addnumber, match: false });
+      numbersOut.push(addnumber);
+    }
+  } while (lineTwo.length < 5);
+  console.table(lineTwo);
+};
 
+const fillLineThree = () => {
+  do {
+    let addnumber = Math.ceil(Math.random() * 15);
+    if (!numbersOut.includes(addnumber)) {
+      alert(
+        "los numeros de tu tarjeta de bingo para la 3era fila son: " + addnumber
+      );
+      lineThree.push({ code: addnumber, match: false });
+      numbersOut.push(addnumber);
+    }
+  } while (lineThree.length < 5);
+  console.table(lineThree);
+};
 
+const usedNumbers = [];
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const welcome = ()=>{
-  let userName = prompt("Ingrese su nombre de usuario")
-  if( userName === null || userName === "" || userName === " "){
-   alert ("Por favor, ingrese un nombre de usuario valido")
-    return welcome()
-   } else { 
-     userName = userName.toUpperCase()
-     console.log(`${userName}, bienvenido al Bingo Online, para jugadores empedernidos anonimos!`)
-   }
- }
-
-///rellena tres lineas de 5 numeros de la tarjeta de bingo
-const cards= [
-  cardOne = [],
-  cardTwo = [],
-  cardThree = []
-]
-
-const numbersOut =[0]
-
-const fillCard = ()=>{
-  cards.forEach((card)=>{
-do{
-let addnumber = (Math.ceil(Math.random()*15))/*ceil redondea hacia arriba, floor hacia abajo y round al mas cerca, como no me interesa el cero pero si el 90, la opcion ceil es la mas acertada*/
-if((!numbersOut.includes(addnumber)) && (!card.some(tarjeta => tarjeta.code === addnumber)))//si el numero no esta aun en la linea, lo añade, si esta llama a la funcion otra vez
-{
-alert ("los numeros de tu tarjeta de bingo son: " + addnumber)
-card.push({code: addnumber, match: false})
-numbersOut.push(addnumber)
-//console.log(card)//console.table
-}
- }
-while(card.length <5) //hasta que tenga 5 numeros
-console.table(card)
-})
-}
-
-
-const usedNumbers = []
-
-const getRandomNumber =()=>{
-let addnumber = (Math.ceil(Math.random()*15))
-//console.log("el numero que salio es : "+addnumber)
-if (usedNumbers.includes(addnumber)) { 
-  getRandomNumber()
-}else if (card.some(codes => codes.code === addnumber)){
-  alert("ha salido el numero: " + addnumber + " y esta en tu carton!")
-  console.table(card)
-  let index = card.findIndex(x => x.code === addnumber)
-  card[index].match= true
-  usedNumbers.push(addnumber)
-  console.log(card)
-   } else {
-   alert("ha salido el numero " + addnumber + " pero no esta en tu cartón")
-   usedNumbers.push(addnumber)
-   }  
-}
-
-const bingoplay =()=>{
-let allMatched
-do  {
-  getRandomNumber()
- allMatched = card.every((cards) => cards.match)
- console.table(card) //console.table
- } 
- while (!allMatched)
-alert(`ENHORABUENA! Has cantado linea en  ${usedNumbers.length} tiradas`);
-}
-
-const bingoApp = ()=>{    
-  welcome()     
-  fillCard()
-  bingoplay()
-  console.log("los numeros que han salido son : "+ usedNumbers+ ". Los turnos jugados son " + usedNumbers.length)
+const getRandomNumber = () => {
+  let addnumber = Math.ceil(Math.random() * 20);
+  if (usedNumbers.includes(addnumber)) {
+    getRandomNumber();
+  } else if (lineOne.some((codes) => codes.code === addnumber)) {
+    alert(
+      "ha salido el numero: " +
+        addnumber +
+        " y esta en tu carton en la linea uno!"
+    );
+    let index = lineOne.findIndex((x) => x.code === addnumber);
+    lineOne[index].match = true;
+    usedNumbers.push(addnumber);
+    console.table(lineOne);
+  } else if (lineTwo.some((codes) => codes.code === addnumber)) {
+    alert(
+      "ha salido el numero: " +
+        addnumber +
+        " y esta en tu carton en la linea dos!"
+    );
+    //console.table(lineTwo)
+    let index = lineTwo.findIndex((x) => x.code === addnumber);
+    lineTwo[index].match = true;
+    usedNumbers.push(addnumber);
+    console.table(lineTwo);
+  } else if (lineThree.some((codes) => codes.code === addnumber)) {
+    alert(
+      "ha salido el numero: " +
+        addnumber +
+        " y esta en tu carton en la linea tres!"
+    );
+    //console.table(lineThree)
+    let index = lineThree.findIndex((x) => x.code === addnumber);
+    lineThree[index].match = true;
+    usedNumbers.push(addnumber);
+    console.table(lineThree);
+  } else {
+    alert("ha salido el numero " + addnumber + " pero no esta en tu cartón");
+    usedNumbers.push(addnumber);
   }
-bingoApp()
+};
+
+const bingoPlay = () => {
+  let allMatchedOne;
+  let allMatchedTwo;
+  let allMatchedThree;
+  while (!allMatchedOne || !allMatchedTwo || !allMatchedThree) {
+    do {
+      getRandomNumber();
+      allMatchedOne = lineOne.every((lineOne) => lineOne.match);
+      console.table(lineOne);
+      allMatchedTwo = lineTwo.every((lineTwo) => lineTwo.match);
+      console.table(lineTwo);
+      allMatchedThree = lineThree.every((lineThree) => lineThree.match);
+      console.table(lineThree);
+    } while (!allMatchedOne && !allMatchedTwo && !allMatchedThree);
+    alert(`ENHORABUENA! Has cantado Linea en  ${usedNumbers.length} tiradas`);
+  }
+  alert(`ENHORABUENA! Has cantado Bingo en  ${usedNumbers.length} tiradas`);
+};
+const playBingoApp = () => {
+  welcome();
+  const playBingo = () => {
+    fillLineOne();
+    fillLineTwo();
+    fillLineThree();
+    getRandomNumber();
+    bingoPlay();
+  };
+  playBingo();
+};
+playBingoApp();
