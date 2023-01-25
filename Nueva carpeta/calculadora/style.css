@@ -1,52 +1,44 @@
-
-
 body {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    padding: 10%;
-    margin: auto;
-    width: 10rem;
-    height:15rem;
-    
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  padding: 10%;
+  margin: auto;
+  width: 10rem;
+  height: 15rem;
 }
-h1{
-    width: auto;
-    font-size: 80%;
-    
+h1 {
+  width: auto;
+  font-size: 80%;
 }
-.buttons{
-    border: 0.2rem solid green;
-    color: goldenrod;
-    background-color:rgb(59, 59, 58);
-    width: 8rem;
-    height: 8rem;
-    
+.buttons {
+  border: 0.2rem solid green;
+  color: goldenrod;
+  background-color: rgb(59, 59, 58);
+  width: 8rem;
+  height: 8rem;
 }
-.button-number{
-    width: 22%;
-   
+.button-number {
+  width: 22%;
 }
-.button-operator{
-    width: 22%;
+.button-operator {
+  width: 22%;
 }
-.button-result{
-    width: 22%;
+.button-result {
+  width: 22%;
 }
-.button-clear{
-    width: 22%;
+.button-clear {
+  width: 22%;
 }
-.display{
-    border: 0.2rem solid red;
-    height: 1.5rem;
-    width: 8rem;
-
+.display {
+  border: 0.2rem solid red;
+  height: 1.5rem;
+  width: 8rem;
 }
 section {
-	border: 0.4rem solid black;
-    border-color: blue;
+  border: 0.4rem solid black;
+  border-color: blue;
 }
-.calculator{
-    border: 0.2rem solid red;
-    
+.calculator {
+  border: 0.2rem solid red;
 }
